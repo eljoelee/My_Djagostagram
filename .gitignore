@@ -1,0 +1,6 @@
+*.pyc
+__pycache__
+env_pystagram
+db.sqlite3
+.DS_Store
+uploads

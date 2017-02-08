@@ -1,0 +1,18 @@
+{% extends "profiles/layout.html" %}
+{% load staticfiles %}
+{% block content %}
+    <div class="content">
+        <img src="{% static 'img/22.jpg' %}" class="img-circle" width="150" height="150">
+        <div class="posts">
+            {% for photo in photos %}
+                <article>
+                    <a href="{% url 'detail' pk=photo.pk %}">
+                        <img src="{{ photo.image.url }}"/>
+                    </a>
+                </article>
+            {% empty %}
+                <p>게시한 사진이 없습니다.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
