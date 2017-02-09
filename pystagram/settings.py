@@ -9,6 +9,23 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
+from django.conf.global_settings import TEMPLATES
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 import os
 
@@ -39,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'photos',
     'profiles',
+    'el_pagination',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +145,5 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/upload_files/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 LOGIN_REDIRECT_URL = '/photos/upload/'
+
+EL_PAGINATION_PER_PAGE = 9

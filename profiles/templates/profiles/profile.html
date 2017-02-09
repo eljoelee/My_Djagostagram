@@ -3,6 +3,13 @@
 {% block content %}
     <div class="content">
         <img src="{% static 'img/22.jpg' %}" class="img-circle" width="150" height="150">
+        <div id="profile_name">
+            <h2>Developer_eljoe</h2>
+            <h4>게시물 {{ photos.count}}개</h4>
+            <h4>{{ user.username }} 햇병아리 개발자🐥🐥</h4>
+        </div>
+        {% load el_pagination_tags %}
+        {% paginate photos %}
         <div class="posts">
             {% for photo in photos %}
                 <article>
@@ -14,5 +21,7 @@
                 <p>게시한 사진이 없습니다.</p>
             {% endfor %}
         </div>
+        {% get_pages %}
+        {{ pages.previous }} {{ pages.next }}
     </div>
 {% endblock %}

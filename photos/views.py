@@ -8,7 +8,7 @@ def detail(request, pk):
     photo = get_object_or_404(Photo, pk=pk)
 
     messages = (
-        '<p><img src="{url}"/></p>'.format(url=photo.image.url),
+        '<p><img src="{url}"style="max-width:480px;"/></p>'.format(url=photo.image.url),
     )
 
     return HttpResponse('\n'.join(messages))
